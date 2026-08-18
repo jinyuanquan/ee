@@ -1,53 +1,47 @@
 # BetterScreenShot / 更好的截图
 
-Mindustry / MindustryX mod that captures high-resolution world screenshots with one click from an OverlayUI button or hotkey. Large maps are rendered in chunks to avoid texture-size limits, with size hints and optional progress status.
+## 中文
 
-通过 OverlayUI 按钮或快捷键一键生成高分辨率世界截图。超大地图会自动分块渲染，规避纹理尺寸限制，并提供截图尺寸提示与可选进度状态。
+> 把一张 Mindustry 地图完整、清晰地保存下来。
 
-## Features
+BetterScreenShot 面向需要记录基地、分享地图或复盘布局的玩家。它可以从游戏内直接生成高分辨率世界截图，大地图也会自动分块处理，不必先缩小视野或手工拼图。
 
-- One-click high-resolution world screenshots from an OverlayUI button or hotkey (default `F8`)
-- Chunked rendering for large maps (avoids texture-size limits)
-- Screenshot size hints (dimensions, raw memory, chunk count)
-- Optional progress status while capturing
-- Falls back to a built-in HUD panel when OverlayUI is not installed
+截图只在本地生成，不影响游戏状态。安装 MindustryX 时可以使用 OverlayUI 按钮；没有它时会回退到普通 HUD 面板。
 
-## Settings
+### 使用
 
-Available in `Settings > BetterScreenShot`:
+安装并启用后，使用 OverlayUI 截图按钮、HUD 按钮或默认 F8 快捷键开始截图。文件会保存到 Mindustry 的截图目录。
 
-- **Enable** — enable/disable the mod (default on)
-- **Resolution scale** — screenshot resolution multiplier, 25%–400% (default 100%)
-- **Show progress status** — display chunk progress while capturing (default on)
+### 需求与构建
 
-## Requirements
+需要 Mindustry v154+。OverlayUI（MindustryX）是可选的。
 
-- Mindustry v154+
-- OverlayUI (MindustryX) optional: the overlay button is used when it is installed, otherwise a HUD panel is shown.
-
-## Build
-
-The repository has no Gradle wrapper, so use a system `gradle` installation:
-
-```powershell
+~~~powershell
 gradle build
-```
+gradle deploy
+~~~
 
-This produces the mod archive `build/libs/betterScreenShot.zip` (a `.zip`, not a `.jar`; Mindustry loads it as a zip mod).
+项目没有 Gradle Wrapper，需要使用系统 Gradle。
 
-Optional artifacts:
+## English
 
-```powershell
-gradle jarDesktop   # build/libs/betterScreenShot.jar (desktop jar)
-gradle jarAndroid   # build/libs/betterScreenShot-android.jar (Android dex jar)
-gradle deploy       # builds all three
-```
+> Save a complete, clear view of a Mindustry world.
 
-The jar tasks also copy versioned copies (`betterScreenShot-v1.0.0.zip`, `betterScreenShot-v1.0.0.jar`, `betterScreenShot-v1.0.0-android.jar`) into `构建/BetterScreenShot/`.
+BetterScreenShot is for players who want to record a base, share a map, or review a layout. It captures high-resolution world screenshots from inside the game and renders large maps in chunks, so you do not need to zoom out or stitch images by hand.
 
-## Usage
+Screenshots are created locally and do not affect the game state. MindustryX provides an OverlayUI button when installed; otherwise the mod falls back to a regular HUD panel.
 
-- In-game: click the OverlayUI screenshot button / HUD panel button, or press the configured hotkey (`F8`).
-- The screenshot is saved to the Mindustry screenshot directory as `screenshot-<timestamp>.png`.
+### Usage
 
-Install the built `.zip` (or desktop `.jar`) through Mindustry's `Mods` menu (`Mods > Import Mod > From File`).
+Enable the mod, then use the OverlayUI button, HUD button, or the default F8 hotkey to capture a world. The PNG is saved to Mindustry's screenshot directory.
+
+### Requirements and build
+
+Mindustry v154+ is required. OverlayUI from MindustryX is optional.
+
+~~~powershell
+gradle build
+gradle deploy
+~~~
+
+This project has no Gradle Wrapper and requires a system Gradle installation.
